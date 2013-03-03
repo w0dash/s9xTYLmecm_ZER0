@@ -11,3 +11,9 @@
 *.lai
 *.la
 *.a
+
+# Various unnecessary files
+EBOOT.PBP
+PARAM.SFO
+snes9xTYL.elf
+snes9xTYL.prx
