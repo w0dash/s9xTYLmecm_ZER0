@@ -16,8 +16,8 @@ typedef struct {
 					  //  -2 : yes/no dialog
 } t_err_entry;
 
-t_err_entry s9xTYL_msg[LANGUAGE_NUMBER][MSG_TOTAL_ENTRIES]= {
- { //english
+t_err_entry s9xTYL_msg_en[MSG_TOTAL_ENTRIES]= {
+//english
 		//error
 		{ERR_OUT_OF_MEM,"Out of memory",60},
 		{ERR_READ_MEMSTICK,"Error reading memstick.\nPlease verify it (using a PC card reader), it may be corrupted.",60},
@@ -201,8 +201,193 @@ t_err_entry s9xTYL_msg[LANGUAGE_NUMBER][MSG_TOTAL_ENTRIES]= {
 		{MENU_ICONS_ABOUT,"ABOUT",0},
 		{MENU_ICONS_ABOUT_CREDITS,"Credits",0},
 		{MENU_ICONS_ABOUT_VERSION,"Version infos",0},
- }
-		
+};
+
+t_err_entry s9xTYL_msg_ja[MSG_TOTAL_ENTRIES]= {
+//japanese
+		//error
+		{ERR_OUT_OF_MEM,"メモリ外です。",60},
+		{ERR_READ_MEMSTICK,"メモリースティックの読み込みでエラーが発生しました。\nメモリースティックを確認してください。\n(PCのカードリーダーを使ってください)\nメモリースティックが破損している可能性があります。",60},
+		//confirm
+  	{ASK_EXIT,"Snes9XTYLを終了しますか?",-2},
+  	{ASK_DELETE,"ファイルを削除しますか?",-2},
+  	//info
+  	{INFO_USB_ON,"USBが有効化されました",30},
+  	{INFO_USB_OFF,"USBが無効化されました",30},
+  	{INFO_DELETING,"削除しています...",0},
+  	{INFO_EXITING,"終了しています。しばらくお待ちください...",0},
+  	//filer
+  	{FILER_STATUS_CANEXIT1,SJIS_CIRCLE " 実行 " SJIS_SQUARE " 標準設定で実行  " SJIS_STAR "  " SJIS_CROSS " ゲームに戻る  "  SJIS_STAR "  " SJIS_TRIANGLE " 上へ  "  SJIS_STAR "  " SJIS_UP "," SJIS_DOWN "," SJIS_LEFT "," SJIS_RIGHT " 移動",0},
+  	{FILER_STATUS_NOEXIT1,SJIS_CIRCLE " 実行 " SJIS_SQUARE " 標準設定で実行  "  SJIS_STAR "  " SJIS_TRIANGLE " 上へ          " SJIS_UP "," SJIS_DOWN "," SJIS_LEFT "," SJIS_RIGHT " リストを移動",0},
+  	{FILER_STATUS_CANEXIT2,SJIS_CIRCLE " 実行 " SJIS_CROSS "ゲームに戻る " SJIS_TRIANGLE " 上へ  " SJIS_UP "," SJIS_DOWN "," SJIS_LEFT "," SJIS_RIGHT " リストを移動",0},
+  	{FILER_STATUS_NOEXIT2,SJIS_CIRCLE " 実行 " SJIS_TRIANGLE " 上へ                  " SJIS_UP "," SJIS_DOWN "," SJIS_LEFT "," SJIS_RIGHT " リストを移動",0},
+  	
+  	{FILER_HELP_WINDOW1,"標準と通信対戦モードを切り替える",0},
+  	{FILER_HELP_WINDOW2,"にはSTARTを押してください",0},
+#ifdef FW3X
+  	{FILER_HELP_WINDOW3," ",0},
+#ifdef HOME_HOOK
+  	{FILER_HELP_WINDOW4,"終了するにはHOMEを押してください",0},
+#else
+    {FILER_HELP_WINDOW4,"終了するにはL+Rを押してください",0},
+#endif
+#else
+#ifdef HOME_HOOK
+    {FILER_HELP_WINDOW3,"終了するにはHOMEを押してください",0},
+#else
+    {FILER_HELP_WINDOW3,"終了するにはL+Rを押してください",0},
+#endif
+  	{FILER_HELP_WINDOW4,"USBｵﾝｵﾌ切り替えにRを押してください",0},
+#endif
+
+
+  	{FILER_HELP_WINDOW5,"削除するにはSELECTを押してください",0},
+  	
+  	{FILE_IPS_PATCHSUCCESS,"IPSパッチの適用に成功しました",0},
+  	
+  	{MENU_STATUS_GENERIC_MSG1,"戻るには" SJIS_CROSS "を押してください",0},
+  	{MENU_STATUS_GENERIC_NEEDRELOAD,"変更を適用するには再読み込みが必要かもしれません",0},
+  	{MENU_STATUS_GENERIC_NEEDRESET,"変更を適用するにはリセットが必要かもしれません",0},
+  	
+  	{MENU_SOUND_MODE_NOTEMUL,"エミュレートしない",0},
+	{MENU_SOUND_MODE_EMULOFF,"エミュレートするが出力しない",0},
+  	{MENU_SOUND_MODE_EMULON,"エミュレートし、出力する",0},
+  	
+  	{MENU_STATE_CHOOSEDEL,"削除するスロットを選んでください",0},
+  	{MENU_STATE_CHOOSELOAD,"読み込むスロットを選んでください",0},
+  	{MENU_STATE_CHOOSESAVE,"保存するスロットを選んでください",0},
+  	{MENU_STATE_FREESLOT,"空き",0},
+  	{MENU_STATE_SCANNING,"使用済みスロットを調べています...",0},
+  	
+  	  	
+  	{ERR_INIT_OSK,"OSKを初期化できません",0},
+  	{ERR_ADD_CODE,"チートコードを追加できません。既に入力されているコードが多すぎます。",0},
+  	
+  	{MENU_CHEATS_ENTERGF,"GoldFingerコードを入力してください",0},
+  	{MENU_CHEATS_ENTERPAR,"プロアクションリプレイコードを入力してください",0},
+  	{MENU_CHEATS_ENTERGG,"Game Genieコードを入力してください",0},
+  	{MENU_CHEATS_ENTERRAW,"RAWコードを入力してください\n書式 : アドレス - 新しい値",0},
+  
+  	{MENU_STATE_CONFIRMLOAD,"現在のゲーム進行が失われます。\n続行しますか?",0},
+		{MENU_STATE_CONFIRMDELETE,"このステートセーブを削除しますか?",0},
+		{MENU_STATE_CONFIRMSAVE,"このステートセーブに上書きしますか?",0},
+		{MENU_STATE_ISSAVING,"ステートセーブしています...",0},
+		{MENU_STATE_ISLOADING,"状態を読み込んでいます...",0},
+		{MENU_STATE_ISIMPORTING,"ステートセーブをインポートしています...",0},
+		{MENU_STATE_ISEXPORTINGS9X,"SNES9Xステートセーブをエクスポートしています...",0},
+		{MENU_STATE_NOSTATE,"使用可能なステートセーブがありません",0},
+		{MENU_GAME_SAVINGDEFAULTSETTINGS,"現在の設定を標準設定として保存しています",0},
+		{MENU_GAME_CONFIRMRESET,"Snesをリセットしますか?",0},
+		{MENU_MISC_SAVINGJPEG,"JPEGスナップショットを保存しています...",0},
+  	
+  	
+  	// GAME
+  	{MENU_ICONS_GAME,"ゲーム",0},
+  	{MENU_ICONS_GAME_RESET,"SNESをリセットする",0},
+  	{MENU_ICONS_GAME_NEW,"新しいゲームを読み込む",0},
+		{MENU_ICONS_GAME_DEFAULTSETTINGS,"標準設定を作成する",0},
+		{MENU_ICONS_GAME_DEFAULTSETTINGS_HELP,"現在の設定を特別に設定ファイルがない\n全てのROMに使われる標準設定として\n保存します。",0},
+		{MENU_ICONS_GAME_EXIT,"Snes9xTYLを終了する",0},
+		// LOAD/SAVE
+		{MENU_ICONS_LOADSAVE,"ロード/セーブ",0},
+		{MENU_ICONS_LOADSAVE_LOADSTATE,"ステートロード",0},
+		{MENU_ICONS_LOADSAVE_LOADSTATE_HELP,"以前保存したステートセーブを\n読み込みます。ステートセーブはSnes\nの状態のスナップショットのような\nもので、すべて保存されます。",0},
+		{MENU_ICONS_LOADSAVE_SAVESTATE,"ステートセーブ",0},
+		{MENU_ICONS_LOADSAVE_SAVESTATE_HELP,"ステートセーブします。",0},
+		{MENU_ICONS_LOADSAVE_DELETESTATE,"ステートセーブを削除",0},
+		{MENU_ICONS_LOADSAVE_DELETESTATE_HELP,"ステートセーブのセーブデータを\n削除します。",0},	
+		{MENU_ICONS_LOADSAVE_IMPORTSTATE,"ステートセーブをインポート",0},
+		{MENU_ICONS_LOADSAVE_IMPORTSTATE_HELP,"uosnes9xや以前のバージョンから\nステートセーブのセーブデータを\nインポートします。",0},
+
+		{MENU_ICONS_LOADSAVE_EXPORTS9XSTATE,"SNES9Xのステートセーブにエクスポート",0},
+		{MENU_ICONS_LOADSAVE_EXPORTS9XSTATE_HELP,"SNES9Xフォーマットを使って\nステートセーブのセーブデータを\nエクスポートします。",0},	
+
+		{MENU_ICONS_LOADSAVE_AUTOSAVETIMER,"オートステートセーブタイマー",0},
+		{MENU_ICONS_LOADSAVE_AUTOSAVETIMER_HELP,"定期的にオートステートセーブを\nさせます。",0},
+		{MENU_ICONS_LOADSAVE_AUTOSRAM,"SRAMが更新されたときにオートセーブする",0},
+		{MENU_ICONS_LOADSAVE_AUTOSRAM_HELP,"変更が行われるたびにSRAMが\n保存されるようにします。",0},
+		// CONTROLS
+		{MENU_ICONS_CONTROLS,"コントローラ",0},
+		{MENU_ICONS_CONTROLS_REDEFINE,"再設定",0},
+		{MENU_ICONS_CONTROLS_REDEFINE_HELP,"ボタン割り当てを再設定します。",0},		
+		{MENU_ICONS_CONTROLS_INPUT,"エミュレートされるコントローラ",0},	
+		{MENU_ICONS_CONTROLS_INPUT_HELP,"現在有効にするSnesコントローラを\n選んでください。",0},			
+		// VIDEO OPTIONS
+		{MENU_ICONS_VIDEO,"ビデオ",0},
+		{MENU_ICONS_VIDEO_MODE,"出力モード",0},
+		{MENU_ICONS_VIDEO_MODE_HELP,"アスペクト比を変更します。\n4:3が推薦されます。",0},
+		{MENU_ICONS_VIDEO_ENGINE,"エンジン",0},
+		{MENU_ICONS_VIDEO_ENGINE_HELP,"ハードウェアクセラレートモードが\nいつも最速なわけではありません。",0},
+		{MENU_ICONS_VIDEO_SLIMITONOFF,"速度制限切り替え",0},
+		{MENU_ICONS_VIDEO_SLIMITONOFF_HELP,"ゲームの速度を制限するには\nオンにしてください。",0},
+		{MENU_ICONS_VIDEO_SLIMITVALUE,"FPS速度制限",0},
+		{MENU_ICONS_VIDEO_SLIMITVALUE_HELP,"速度制限がオンのときのみ\n使われます。",0},
+		{MENU_ICONS_VIDEO_FSKIP,"フレームスキップ",0},
+		{MENU_ICONS_VIDEO_FSKIP_HELP,"表\示されないスプライトがある場合は\n固定値を選んでください。",0},
+		{MENU_ICONS_VIDEO_SMOOTHING,"スムーシング",0},
+		{MENU_ICONS_VIDEO_SMOOTHING_HELP,"何も犠牲にしないときのみ\nオンにすべきです。",0},
+		{MENU_ICONS_VIDEO_VSYNC,"垂直同期",0},
+		{MENU_ICONS_VIDEO_VSYNC_HELP,"これは多くのFPSを犠牲にするので\nオフにすべきです。",0},
+		{MENU_ICONS_VIDEO_PALASNTSC,"PALをNTSCとして描画する",0},
+		{MENU_ICONS_VIDEO_PALASNTSC_HELP,"PALのゲームを240本の垂直解像度の\n代わりに224本にしてNTSCのものように\nエミュレートするよう強制します。",0},		
+		{MENU_ICONS_VIDEO_GAMMA,"ガンマ補正",0},
+		{MENU_ICONS_VIDEO_GAMMA_HELP,"より明るめな描画をさせます。",0},		
+		{MENU_ICONS_VIDEO_SCRCALIB,"画面位置補正",0},
+		{MENU_ICONS_VIDEO_SCRCALIB_HELP,"邪魔な黒い枠を取り除くのに\n役立ちます。",0},			
+		{MENU_ICONS_VIDEO_SHOWFPS,"FPS表\示",0},
+		{MENU_ICONS_VIDEO_SHOWFPS_HELP,"1行目はエミュレートされる\nフレーム数を表\示します。\n二行目は本当のFPSを表\示します。",0},
+		// SOUND OPTIONS
+		{MENU_ICONS_SOUND,"音声",0},
+		{MENU_ICONS_SOUND_MODE,"サウンドモード",0},
+		{MENU_ICONS_SOUND_MODE_HELP,"エミュレートしないのが最速ですが\nいくつかのゲームは動作しません。",0},
+		{MENU_ICONS_SOUND_FREQ,"出力周波数",0},
+		{MENU_ICONS_SOUND_FREQ_HELP,"低いほうが速くなります。\n高いほうが音質がよくなります。",0},
+		{MENU_ICONS_SOUND_APURATIO,"APU周期比",0},
+		{MENU_ICONS_SOUND_APURATIO_HELP,"それが何をするか知っている\n高度なユーザー向けです。",0},
+		// MISC OPTIONS
+		{MENU_ICONS_MISC,"その他",0},
+		{MENU_ICONS_MISC_FILEVIEWER,"ファイル表\示",0},
+		{MENU_ICONS_MISC_FILEVIEWER_HELP,"簡単なファイルビューワーです。",0},
+		{MENU_ICONS_MISC_PSPCLOCK,"PSPクロック速度",0},	
+		{MENU_ICONS_MISC_PSPCLOCK_HELP,"222MHz以上はオーバークロックでは\nありません。\n安全ですが電池を速く消費します。",0},
+		{MENU_ICONS_MISC_HACKDEBUG,"Hackハック/デバッグメニュー",0},
+		{MENU_ICONS_MISC_HACKDEBUG_HELP,"高度なユーザー向けです。\n描画を調整してスピードを\n得るのに役立ちます。",0},
+		{MENU_ICONS_MISC_SNAPSHOT,"スナップショット",0},
+		{MENU_ICONS_MISC_SNAPSHOT_HELP,"現在のゲームの画面の\nスナップショットを撮ります。\nファイル一覧で使われます。",0},
+		{MENU_ICONS_MISC_RANDBG,"ランダムバックグラウンド",0},
+		{MENU_ICONS_MISC_RANDBG_HELP,"DATA/logo.zipから\nランダムに背景を表\示します。",0},
+		{MENU_ICONS_MISC_BGMUSIC,"メニューBGM",0},
+		{MENU_ICONS_MISC_BGMUSIC_HELP,"メニューBGMはPSPを300MHzで\n動作させる必要があります。\n音楽はDATA/music.zipから再生します。\nSPCフォーマットのみです。",0},
+		{MENU_ICONS_MISC_BGFX,"メニューバックグラウンドCG",0},
+		{MENU_ICONS_MISC_BGFX_HELP,"PS2DEV spline sampleの素敵なCGです。",0},
+		{MENU_ICONS_MISC_PADBEEP,"パッドビープ",0},
+		{MENU_ICONS_MISC_PADBEEP_HELP,"ビープ音がメニューやファイル一覧を\n移動しているときに鳴ります。",0},
+		// CHEATS
+		{MENU_ICONS_CHEATS,"チート",0},
+		{MENU_ICONS_CHEATS_ADDRAW,"RAWコード追加",0},
+		{MENU_ICONS_CHEATS_ADDRAW_HELP,"RAWコードを追加します。",0},	
+		{MENU_ICONS_CHEATS_ADDGG,"Game Genieコード追加",0},
+		{MENU_ICONS_CHEATS_ADDGG_HELP,"Game Genieコードを追加します。",0},
+		{MENU_ICONS_CHEATS_ADDPAR,"プロアクションリプレイコード追加",0},
+		{MENU_ICONS_CHEATS_ADDPAR_HELP,"プロアクションリプレイコードを\n追加します。",0},
+		{MENU_ICONS_CHEATS_ADDGF,"GoldFingerコード追加",0},
+		{MENU_ICONS_CHEATS_ADDGF_HELP,"GoldFingerコードを追加します。",0},
+		{MENU_ICONS_CHEATS_DISABLE,"コード無効化",0},
+		{MENU_ICONS_CHEATS_DISABLE_HELP,"コードを無効化します。",0},		
+		{MENU_ICONS_CHEATS_DISABLEALL,"全コード無効化",0},
+		{MENU_ICONS_CHEATS_DISABLEALL_HELP,"全てのコードを無効化します。",0},		
+		{MENU_ICONS_CHEATS_ENABLE,"コード有効化",0},
+		{MENU_ICONS_CHEATS_ENABLE_HELP,"コードを有効にします。",0},		
+		{MENU_ICONS_CHEATS_ENABLEALL,"全コード有効化",0},
+		{MENU_ICONS_CHEATS_ENABLEALL_HELP,"全てのコードを有効化します。",0},		
+		{MENU_ICONS_CHEATS_REMOVE,"コード削除",0},
+		{MENU_ICONS_CHEATS_REMOVE_HELP,"コードを削除します。",0},		
+		{MENU_ICONS_CHEATS_REMOVEALL,"全コード削除",0},
+		{MENU_ICONS_CHEATS_REMOVEALL_HELP,"全てのコードを削除します。",0},		
+		// ABOUT
+		{MENU_ICONS_ABOUT,"このソ\フトについて",0},
+		{MENU_ICONS_ABOUT_CREDITS,"クレジット",0},
+		{MENU_ICONS_ABOUT_VERSION,"バージョン情報",0},
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -214,10 +399,16 @@ t_err_entry s9xTYL_msg[LANGUAGE_NUMBER][MSG_TOTAL_ENTRIES]= {
 ////////////////////////////////////////////////////////////////////////////////////////
 char *psp_msg_string(int num) {
 	int msg_num=0;
-	while (msg_num<MSG_TOTAL_ENTRIES) {
-		if (num==s9xTYL_msg[os9x_language][msg_num].msg_id) return s9xTYL_msg[os9x_language][msg_num].msg;
-		msg_num++;
-	}
+	if (os9x_language == LANGUAGE_JAPANESE)
+		while (msg_num<MSG_TOTAL_ENTRIES) {
+			if (num==s9xTYL_msg_ja[msg_num].msg_id) return s9xTYL_msg_ja[msg_num].msg;
+			msg_num++;
+		}
+	else
+		while (msg_num<MSG_TOTAL_ENTRIES) {
+			if (num==s9xTYL_msg_en[msg_num].msg_id) return s9xTYL_msg_en[msg_num].msg;
+			msg_num++;
+		}
 	return "unknown string";//NULL;
 }
 
@@ -232,46 +423,33 @@ char *psp_msg_string(int num) {
 ////////////////////////////////////////////////////////////////////////////////////////
 int psp_msg(int num,int len) {	
 	int msg_num=0;
-	
-	while (msg_num<MSG_TOTAL_ENTRIES) {
-		if (num==s9xTYL_msg[os9x_language][msg_num].msg_id) break;
-		msg_num++;
-	}
+
+	if (os9x_language == LANGUAGE_JAPANESE)
+		while (msg_num<MSG_TOTAL_ENTRIES) {
+			if (num==s9xTYL_msg_ja[msg_num].msg_id) break;
+			msg_num++;
+		}
+	else
+		while (msg_num<MSG_TOTAL_ENTRIES) {
+			if (num==s9xTYL_msg_en[msg_num].msg_id) break;
+			msg_num++;
+		}
+
 	if (msg_num==MSG_TOTAL_ENTRIES) return 0;
-		
-	if (len==MSG_DEFAULT)	len=s9xTYL_msg[os9x_language][msg_num].len;
-	if (len>=0)	msgBoxLines(s9xTYL_msg[os9x_language][msg_num].msg,s9xTYL_msg[os9x_language][msg_num].len);
-	else if (len==-1) inputBoxOK(s9xTYL_msg[os9x_language][msg_num].msg);
-	else if (len==-2) return inputBox(s9xTYL_msg[os9x_language][msg_num].msg);
+
+	if (os9x_language == LANGUAGE_JAPANESE) {
+		if (len==MSG_DEFAULT)	len=s9xTYL_msg_ja[msg_num].len;
+		if (len>=0)	msgBoxLines(s9xTYL_msg_ja[msg_num].msg,s9xTYL_msg_ja[msg_num].len);
+		else if (len==-1) inputBoxOK(s9xTYL_msg_ja[msg_num].msg);
+		else if (len==-2) return inputBox(s9xTYL_msg_ja[msg_num].msg);
+	}
+	else {
+		if (len==MSG_DEFAULT)	len=s9xTYL_msg_en[msg_num].len;
+		if (len>=0)	msgBoxLines(s9xTYL_msg_en[msg_num].msg,s9xTYL_msg_en[msg_num].len);
+		else if (len==-1) inputBoxOK(s9xTYL_msg_en[msg_num].msg);
+		else if (len==-2) return inputBox(s9xTYL_msg_en[msg_num].msg);
+	}
+
 	return 0;
 }
 
-
-void save_msg_list(char *fname) {
-	FILE *f;
-	int i,j;
-	f=fopen(fname,"wt");
-	if (!f) return;
-	for (j=0;j<LANGUAGE_NUMBER;j++) {	
-		fprintf(f,"[LANG]\n%s\n",s9xTYL_lang[j]);
-		for (i=0;i<MSG_TOTAL_ENTRIES;i++) {
-			fprintf(f,"[MSG%08X]\n%s\n",s9xTYL_msg[j][i].msg_id,s9xTYL_msg[j][i].msg);
-		}
-	}
-	fclose(f);
-}
-
-void load_msg_list(char *fname) {
-	//check if os9x_language is available, take english or first one else
-	FILE *f;
-	int i,j;
-	f=fopen(fname,"rt");
-	if (!f) return;
-	/*for (j=0;j<LANGUAGE_NUMBER;j++) {	
-		fprintf(f,"[LANG]\n%s\n",s9xTYL_lang[j]);
-		for (i=0;i<MSG_TOTAL_ENTRIES;i++) {
-			fprintf(f,"[MSG%08X]\n%s\n",s9xTYL_msg[j][i].msg_id,s9xTYL_msg[j][i].msg);
-		}
-	}*/
-	fclose(f);
-}
