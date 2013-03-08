@@ -71,9 +71,9 @@ extern int os9x_hack;
 #define VERSION_MINOR 4
 #define VERSION_STR "0.4.2"
 #ifdef ME_ACTIVE
-#define EMUNAME_VERSION "Snes9xTYLmecm 0.4.2 Mod"
+#define EMUNAME_VERSION "Snes9xTYLmecm 0.4.2 ZER0"
 #else
-#define EMUNAME_VERSION "Snes9xTYLcm 0.4.2 Mod"
+#define EMUNAME_VERSION "Snes9xTYLcm 0.4.2 ZER0"
 #endif
 
 #include "timestamp.h"
